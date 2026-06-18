@@ -43,7 +43,7 @@ export default function Header() {
     >
       <div className="container-x flex items-center justify-between" style={{ paddingBlock: scrolled ? "0.7rem" : "1.1rem" }}>
         <div style={{ height: scrolled ? "44px" : "52px" }} className="transition-[height] duration-500">
-          <Logo variant={onDark ? "dark" : "light"} className="h-full" />
+          <Logo variant={onDark ? "dark" : "light"} className="h-full" priority />
         </div>
 
         {/* Desktop nav */}
