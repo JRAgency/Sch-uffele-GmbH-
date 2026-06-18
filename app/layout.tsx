@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Inter, Space_Grotesk, Caveat } from "next/font/google";
 import "./globals.css";
 import { company } from "@/lib/site";
 import Header from "@/components/Header";
@@ -19,6 +19,13 @@ const grotesk = Space_Grotesk({
   variable: "--font-grotesk",
   display: "swap",
   weight: ["500", "600", "700"],
+});
+
+const caveat = Caveat({
+  subsets: ["latin"],
+  variable: "--font-caveat",
+  display: "swap",
+  weight: ["600", "700"],
 });
 
 const siteUrl = "https://schaeuffele-gmbh.example"; // TODO Kunde: finale Domain
@@ -60,7 +67,7 @@ export const viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="de" className={`${inter.variable} ${grotesk.variable}`}>
+    <html lang="de" className={`${inter.variable} ${grotesk.variable} ${caveat.variable}`}>
       <body>
         <Header />
         <main>{children}</main>

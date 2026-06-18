@@ -4,20 +4,7 @@ import { company, services, agency } from "@/lib/site";
 
 export default function Footer() {
   return (
-    <footer className="relative overflow-hidden bg-[var(--color-ink)] text-white">
-      {/* Wordmark-Watermark */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -bottom-6 left-0 w-full select-none text-center font-display font-bold uppercase leading-none"
-        style={{
-          fontSize: "clamp(4rem, 18vw, 16rem)",
-          color: "rgba(255,255,255,0.04)",
-          letterSpacing: "-0.04em",
-        }}
-      >
-        Schäuffele
-      </div>
-
+    <footer className="relative bg-[var(--color-ink)] text-white">
       <div className="container-x relative z-10 py-16 lg:py-20">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
           <div>
@@ -25,7 +12,8 @@ export default function Footer() {
               <Logo variant="dark" className="h-full" />
             </div>
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-white/60">
-              {company.tagline}
+              Familiengeführter Werkzeug- und Formenbau aus Brackenheim. Präzisions-Spritzgießwerkzeuge
+              für Thermo- und Duroplaste — mit Herzblut bei der Sache.
             </p>
           </div>
 

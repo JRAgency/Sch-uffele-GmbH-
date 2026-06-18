@@ -234,6 +234,21 @@ export const stats = [
   { value: 0, suffix: "", custom: "Mo–Fr", label: "Persönlich erreichbar", sub: company.hoursShort },
 ];
 
+// Persönlicher Familien-Charakter
+export const family = {
+  // Hero-Karte (rechts, füllt Ultrawide + macht es persönlich)
+  heroBadge: "Familienbetrieb",
+  heroNote: "Bei uns geht noch der Chef ans Telefon — und ans Werkzeug.",
+  // Zitat-Sektion
+  quote:
+    "Ein Werkzeug von uns ist mehr als Stahl. Da steckt unser Name drin — und der ist uns zu wichtig, um Mittelmaß abzuliefern.",
+  signature: "Jürgen Schäuffele",
+  role: "Geschäftsführer",
+  body:
+    "Wir sind kein anonymer Zulieferer, sondern ein Team aus Brackenheim, das sein Handwerk liebt. Sie sprechen direkt mit den Leuten, die Ihr Werkzeug konstruieren, fräsen und abmustern. Kurze Wege, ehrliche Ansagen, verbindliche Termine — so machen wir das, seit wir Formen bauen.",
+  cta: "Lernen Sie uns kennen",
+};
+
 export const agency = {
   name: "JR Agency Services",
   url: "https://www.jr-agency.de",

@@ -3,53 +3,75 @@ import Link from "next/link";
 import { Container, Eyebrow, ButtonLink, ArrowRight } from "@/components/ui";
 import Marquee from "@/components/Marquee";
 import Stats from "@/components/Stats";
-import { services, branchen, prozess, vorteile, company } from "@/lib/site";
+import { services, branchen, prozess, vorteile, company, family } from "@/lib/site";
 
 export default function Home() {
   return (
     <>
       {/* ============ HERO ============ */}
-      <section className="relative flex min-h-[100svh] items-end overflow-hidden bg-[var(--color-ink)]">
+      <section className="relative flex min-h-[94svh] items-center overflow-hidden bg-[var(--color-ink)]">
         <div className="absolute inset-0">
           <Image
             src="/img/hero-welding.jpg"
-            alt="Funkenflug bei der Bearbeitung im Werkzeugbau"
+            alt="Präzisionsbearbeitung im Werkzeug- und Formenbau"
             fill
             priority
             sizes="100vw"
-            className="ken-burns object-cover opacity-80"
+            className="ken-burns object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-ink)] via-[var(--color-ink)]/60 to-[var(--color-brand-950)]/70" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-brand-950)]/80 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-ink)] via-[var(--color-ink)]/55 to-[var(--color-brand-950)]/60" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-brand-950)]/85 via-[var(--color-ink)]/40 to-transparent" />
         </div>
 
-        <Container className="relative z-10 pb-20 pt-36 lg:pb-28">
-          <div className="max-w-4xl">
-            <div className="reveal">
-              <Eyebrow onDark>Werkzeug- und Formenbau · Brackenheim</Eyebrow>
-            </div>
-            <h1 className="h-hero reveal reveal-d1 mt-6 text-white">
-              Werkzeuge, die{" "}
-              <span className="text-[var(--color-brand-300)]">Präzision</span> in Serie bringen.
-            </h1>
-            <p className="reveal reveal-d2 mt-7 max-w-2xl text-lg leading-relaxed text-white/75">
-              {company.tagline}
-            </p>
-            <div className="reveal reveal-d3 mt-9 flex flex-wrap gap-3">
-              <ButtonLink href="/kontakt" variant="on-dark">
-                Anfrage stellen <ArrowRight />
-              </ButtonLink>
-              <ButtonLink href="/leistungen" variant="ghost-dark">
-                Unsere Leistungen
-              </ButtonLink>
+        <Container className="relative z-10 pt-32 pb-16 lg:pb-20">
+          <div className="grid items-center gap-12 xl:grid-cols-[1.55fr_0.95fr]">
+            {/* Text */}
+            <div className="max-w-2xl">
+              <div className="reveal">
+                <Eyebrow onDark>Familiengeführter Werkzeug- und Formenbau · Brackenheim</Eyebrow>
+              </div>
+              <h1 className="h-hero reveal reveal-d1 mt-6 text-white">
+                Werkzeuge, die{" "}
+                <span className="text-[var(--color-brand-300)]">Präzision</span> in Serie bringen.
+              </h1>
+              <p className="reveal reveal-d2 mt-7 max-w-xl text-lg leading-relaxed text-white/75">
+                {company.tagline}
+              </p>
+              <div className="reveal reveal-d3 mt-9 flex flex-wrap gap-3">
+                <ButtonLink href="/kontakt" variant="on-dark">
+                  Anfrage stellen <ArrowRight />
+                </ButtonLink>
+                <ButtonLink href="/leistungen" variant="ghost-dark">
+                  Unsere Leistungen
+                </ButtonLink>
+              </div>
+
+              {/* Quick facts */}
+              <div className="reveal reveal-d4 mt-12 grid max-w-2xl gap-x-10 gap-y-4 border-t border-white/10 pt-7 text-sm text-white/70 sm:grid-cols-3">
+                <span><span className="block font-semibold text-white">Thermo- & Duroplast</span>beide Werkstoffwelten</span>
+                <span><span className="block font-semibold text-white">Elektronik & Automotive</span>unsere Branchen</span>
+                <span><span className="block font-semibold text-white">Alles aus einer Hand</span>von CAD bis Bemusterung</span>
+              </div>
             </div>
 
-            {/* Quick facts */}
-            <div className="reveal reveal-d4 mt-14 flex flex-wrap gap-x-10 gap-y-4 border-t border-white/10 pt-7 text-sm text-white/70">
-              <span><span className="font-semibold text-white">Thermo- & Duroplast</span> · beide Werkstoffwelten</span>
-              <span><span className="font-semibold text-white">Elektronik & Automotive</span> · unsere Branchen</span>
-              <span><span className="font-semibold text-white">Eigenes Haus</span> · von CAD bis Bemusterung</span>
-            </div>
+            {/* Persönliche Karte — füllt Ultrawide, macht es nahbar */}
+            <aside className="reveal reveal-d3 hidden xl:block">
+              <div className="rounded-[1.75rem] border border-white/15 bg-white/[0.06] p-8 backdrop-blur-md">
+                <span className="signature text-[2.6rem] text-[var(--color-brand-300)]">{family.heroBadge}</span>
+                <p className="mt-3 text-lg leading-relaxed text-white/85">{family.heroNote}</p>
+                <div className="mt-7 space-y-3 border-t border-white/10 pt-6">
+                  <a href={`tel:${company.phoneHref}`} className="flex items-center gap-3 text-white transition-colors hover:text-[var(--color-brand-300)]">
+                    <PhoneIcon /> <span className="font-semibold">{company.phone}</span>
+                  </a>
+                  <p className="flex items-center gap-3 text-sm text-white/60">
+                    <ClockIcon /> {company.hours}
+                  </p>
+                  <p className="flex items-center gap-3 text-sm text-white/60">
+                    <PinIcon /> {company.address.zip} {company.address.city}
+                  </p>
+                </div>
+              </div>
+            </aside>
           </div>
         </Container>
       </section>
@@ -110,15 +132,16 @@ export default function Home() {
             </div>
             <div className="reveal reveal-d1">
               <Eyebrow>Unternehmen</Eyebrow>
-              <h2 className="h-section mt-5">Familienbetrieb mit Anspruch an jedes Detail</h2>
+              <h2 className="h-section mt-5">Wir bauen jedes Werkzeug, als wäre es unseres</h2>
               <p className="mt-6 text-[var(--color-steel)]">
-                Die Schäuffele GmbH plant, entwickelt und fertigt technisch hochwertige Präzisions-Spritzgießwerkzeuge
-                am Standort Brackenheim. Als familiengeführter Betrieb stehen wir für kurze Wege, verbindliche Zusagen
-                und Werkzeuge, die über viele Serien hinweg zuverlässig produzieren.
+                Die Schäuffele GmbH plant, entwickelt und fertigt Präzisions-Spritzgießwerkzeuge am Standort
+                Brackenheim — Konstruktion, Zerspanung, Erodieren, Montage und Bemusterung unter einem Dach.
+                Als familiengeführter Betrieb stehen wir mit unserem Namen für jedes Werkzeug gerade.
               </p>
               <p className="mt-4 text-[var(--color-steel)]">
-                Namhafte Unternehmen der Elektro- und Elektronikindustrie sowie Automobilzulieferer vertrauen auf
-                unsere Präzision — bei Thermoplast- ebenso wie bei Duroplast-Werkzeugen.
+                Vom Steckverbinder für die Elektronik bis zum Bauteil für die Automobilzulieferer: Unsere Kunden
+                bekommen kurze Wege, ehrliche Beratung und Werkzeuge, die über viele Serien zuverlässig laufen —
+                bei Thermoplast wie bei Duroplast.
               </p>
               <ButtonLink href="/unternehmen" variant="outline" className="mt-8">
                 Mehr über uns <ArrowRight />
@@ -191,6 +214,40 @@ export default function Home() {
         </Container>
       </section>
 
+      {/* ============ PERSÖNLICH / FAMILIE ============ */}
+      <section className="bg-[var(--color-cream)] section-y">
+        <Container>
+          <div className="grid items-center gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
+            <div className="reveal relative">
+              <div className="img-zoom relative aspect-[4/5] overflow-hidden rounded-[2rem] shadow-[0_40px_80px_-40px_rgba(12,20,34,0.4)]">
+                <Image src="/img/ingenieurin-pruefung.jpg" alt="Präzisionsmessung von Hand im Werkzeugbau" fill sizes="(max-width:1024px) 100vw, 40vw" className="object-cover" />
+              </div>
+              <div className="absolute -bottom-5 -right-4 hidden rounded-2xl bg-[var(--color-brand-700)] px-6 py-4 text-white shadow-xl sm:block">
+                <div className="signature text-2xl leading-none text-[var(--color-brand-200)]">seit der ersten Form</div>
+                <div className="mt-1 text-xs uppercase tracking-[0.14em] text-white/70">mit Herzblut dabei</div>
+              </div>
+            </div>
+
+            <div className="reveal reveal-d1">
+              <Eyebrow>Familienbetrieb</Eyebrow>
+              <blockquote className="pull-quote mt-6 text-[var(--color-ink)]">
+                <span className="text-[var(--color-brand-400)]">„</span>
+                {family.quote}
+                <span className="text-[var(--color-brand-400)]">"</span>
+              </blockquote>
+              <div className="mt-8 flex items-end gap-5">
+                <span className="signature text-[3.2rem] text-[var(--color-brand-700)]">{family.signature}</span>
+                <span className="mb-2 text-sm font-medium text-[var(--color-steel)]">{family.role}</span>
+              </div>
+              <p className="mt-6 max-w-xl text-[var(--color-steel)]">{family.body}</p>
+              <ButtonLink href="/unternehmen" variant="primary" className="mt-8">
+                {family.cta} <ArrowRight />
+              </ButtonLink>
+            </div>
+          </div>
+        </Container>
+      </section>
+
       {/* ============ VORTEILE ============ */}
       <section className="section-y">
         <Container>
@@ -239,5 +296,31 @@ export default function Home() {
         </Container>
       </section>
     </>
+  );
+}
+
+function PhoneIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="shrink-0" aria-hidden="true">
+      <path d="M6.5 3h3l1.5 5-2 1.2a12 12 0 005.8 5.8l1.2-2 5 1.5v3a2 2 0 01-2.2 2A17 17 0 014.5 5.2 2 2 0 016.5 3z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function ClockIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="shrink-0" aria-hidden="true">
+      <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.6" />
+      <path d="M12 7v5l3.5 2" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function PinIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="shrink-0" aria-hidden="true">
+      <path d="M12 21s7-5.4 7-11a7 7 0 10-14 0c0 5.6 7 11 7 11z" stroke="currentColor" strokeWidth="1.6" />
+      <circle cx="12" cy="10" r="2.5" stroke="currentColor" strokeWidth="1.6" />
+    </svg>
   );
 }
